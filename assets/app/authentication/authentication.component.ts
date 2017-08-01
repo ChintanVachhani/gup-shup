@@ -2,8 +2,8 @@ import {Component} from "@angular/core";
 
 @Component({
     selector: 'gs-authentication',
-    template: `<h1>Authentication</h1>`
+    templateUrl: './authentication.component.html'
 })
-export class AuthenticationComponent{
+export class AuthenticationComponent {
 
 }

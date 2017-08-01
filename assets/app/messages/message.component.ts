@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {Message} from "./message.model";
+import {MessageService} from "./message.service";
 
 @Component({
     selector: 'gs-message',
@@ -23,7 +24,13 @@ import {Message} from "./message.model";
 export class MessageComponent {
     @Input() message: Message;
     @Output() editMessage = new EventEmitter<string>();
+
+    constructor(private messageService: MessageService){}
+
     onEdit(){
         this.editMessage.emit('This is the edited test message.');
+    }
+    onDelete(){
+        this.messageService.deleteMessage(this.message);
     }
 }

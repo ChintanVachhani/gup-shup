@@ -4,21 +4,15 @@ import {MessageService} from "./message.service";
 
 @Component({
     selector: 'gs-message-list',
-    template: `
-        <div class="col-md-8 col-md-offset-2">
-            <gs-message
-                    [message]="message"
-                    (editMessage)="message.content = $event"
-                    *ngFor="let message of messages"></gs-message>
-        </div>
-    `
+    templateUrl: './message-list.component.html'
 })
-export class MessageListComponent implements OnInit{
+export class MessageListComponent implements OnInit {
     messages: Message[];
 
-    constructor(private messageService: MessageService){}
+    constructor(private messageService: MessageService) {
+    }
 
-    ngOnInit(){
+    ngOnInit() {
         this.messages = this.messageService.getMessages();
     }
 }
