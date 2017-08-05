@@ -12,7 +12,11 @@ export class MessageInputComponent {
 
     onSubmit(inputMessageForm: NgForm) {
         const message = new Message(inputMessageForm.value.content, 'Chintan');
-        this.messageService.addMessage(message);
+        this.messageService.addMessage(message)
+            .subscribe(
+                data => console.log(data),
+                error => console.error(error),
+            );
         inputMessageForm.resetForm();
     }
 }

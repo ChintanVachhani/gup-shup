@@ -12,6 +12,7 @@ import {CustomRouterModule} from "./app.router";
 import {LogoutComponent} from "./authentication/logout.component";
 import {SignupComponent} from "./authentication/signup.component";
 import {SigninComponent} from "./authentication/signin.component";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
     declarations: [
@@ -26,7 +27,7 @@ import {SigninComponent} from "./authentication/signin.component";
         SignupComponent,
         SigninComponent
     ],
-    imports: [BrowserModule, FormsModule, CustomRouterModule, ReactiveFormsModule],
+    imports: [BrowserModule, FormsModule, CustomRouterModule, ReactiveFormsModule, HttpModule],
     bootstrap: [AppComponent]
 })
 export class AppModule {
