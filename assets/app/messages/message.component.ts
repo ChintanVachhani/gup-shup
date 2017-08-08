@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {Message} from "./message.model";
 import {MessageService} from "./message.service";
 
@@ -29,8 +29,13 @@ export class MessageComponent {
 
     onEdit(){
         //this.editMessage.emit('This is the edited test message.');
+        this.messageService.editMessage(this.message);
     }
     onDelete(){
-        this.messageService.deleteMessage(this.message);
+        this.messageService.deleteMessage(this.message)
+            .subscribe(
+                result => console.log(result),
+                err => console.log(err)
+            );
     }
 }

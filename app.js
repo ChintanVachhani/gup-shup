@@ -11,7 +11,7 @@ var userRoutes = require('./routes/user');
 var appRoutes = require('./routes/app');
 
 var app = express();
-mongoose.connect('localhost:27017/node-angular');
+mongoose.connect('localhost:27017/gup-shup');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
