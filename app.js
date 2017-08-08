@@ -6,9 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); //MongoDB Client that allows blueprints & models in database
 
-var appRoutes = require('./routes/app');
 var messageRoutes = require('./routes/message');
 var userRoutes = require('./routes/user');
+var appRoutes = require('./routes/app');
 
 var app = express();
 mongoose.connect('localhost:27017/node-angular');

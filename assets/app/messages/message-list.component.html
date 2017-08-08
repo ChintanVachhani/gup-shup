@@ -1,6 +1,3 @@
 <div class="col-md-8 col-md-offset-2">
-    <gs-message
-            [message]="message"
-            (editMessage)="message.content = $event"
-            *ngFor="let message of messages"></gs-message>
+    <gs-message [message]="message" *ngFor="let message of messages" <!--(editMessage)="message.content = $event"-->></gs-message>
 </div>

@@ -23,12 +23,12 @@ import {MessageService} from "./message.service";
 })
 export class MessageComponent {
     @Input() message: Message;
-    @Output() editMessage = new EventEmitter<string>();
+    //@Output() editMessage = new EventEmitter<string>();
 
     constructor(private messageService: MessageService){}
 
     onEdit(){
-        this.editMessage.emit('This is the edited test message.');
+        //this.editMessage.emit('This is the edited test message.');
     }
     onDelete(){
         this.messageService.deleteMessage(this.message);
