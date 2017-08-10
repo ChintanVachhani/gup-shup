@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+require('dotenv').config();
 var mongoose = require('mongoose'); //MongoDB Client that allows blueprints & models in database
 
 var messageRoutes = require('./routes/message');
@@ -11,7 +12,7 @@ var userRoutes = require('./routes/user');
 var appRoutes = require('./routes/app');
 
 var app = express();
-mongoose.connect('localhost:27017/gup-shup');
+mongoose.connect('localhost:27017/gup-shup'); // change the database address in production
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
