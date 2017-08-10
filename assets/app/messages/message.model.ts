@@ -13,7 +13,7 @@ export class Message {
 
     //Equivalent to the above commented piece of code
     constructor(public content: string,
-                public userName: string,
+                public userName?: string,
                 public messageId?: string,
                 public userId?: string) {}
 }

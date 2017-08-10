@@ -1,4 +1,6 @@
 import {Component} from "@angular/core";
+import {AuthenticationService} from "./authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'gs-logout',
@@ -9,7 +11,11 @@ import {Component} from "@angular/core";
     `
 })
 export class LogoutComponent {
-    onLogout() {
 
+    constructor(private authenticationService: AuthenticationService, private router: Router){}
+
+    onLogout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/authentication', 'signin']);
     }
 }

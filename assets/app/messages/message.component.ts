@@ -38,4 +38,7 @@ export class MessageComponent {
                 err => console.log(err)
             );
     }
+    belongsToUser(){
+        return sessionStorage.getItem('userId') == this.message.userId;
+    }
 }

@@ -24,7 +24,7 @@ export class MessageInputComponent implements OnInit {
             this.message = null;
         } else {
             //Create Message
-            const message = new Message(inputMessageForm.value.content, 'Chintan');
+            const message = new Message(inputMessageForm.value.content);
             this.messageService.addMessage(message)
                 .subscribe(
                     result => console.log(result),
