@@ -4,6 +4,7 @@ import {Headers, Http, Response} from "@angular/http";
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
 import {ErrorService} from "../error/error.service";
+import {AppEnvironment} from "../app.environment";
 
 @Injectable()
 export class AuthenticationService {
@@ -12,7 +13,7 @@ export class AuthenticationService {
     signup(user: User) {
         const body = JSON.stringify(user);
         const header = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/user', body, {headers: header})
+        return this.http.post(AppEnvironment.SERVER_ADDRESS + '/user', body, {headers: header})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -23,7 +24,7 @@ export class AuthenticationService {
     signin(user: User) {
         const body = JSON.stringify(user);
         const header = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/user/signin', body, {headers: header})
+        return this.http.post(AppEnvironment.SERVER_ADDRESS + '/user/signin', body, {headers: header})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());

@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from "./app.component";
-import {ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationComponent} from "./authentication/authentication.component";
 import {HeaderComponent} from "./shared/header.component";
 import {CustomRouterModule} from "./app.router";

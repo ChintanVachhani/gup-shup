@@ -4,6 +4,7 @@ import {EventEmitter, Injectable} from "@angular/core";
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
 import {ErrorService} from "../error/error.service";
+import {AppEnvironment} from "../app.environment";
 
 @Injectable()
 export class MessageService {
@@ -16,7 +17,7 @@ export class MessageService {
         const body = JSON.stringify(message);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = sessionStorage.getItem('token') ? '?token=' + sessionStorage.getItem('token') : '';
-        return this.http.post('http://localhost:3000/message' + token, body, {headers: headers})
+        return this.http.post(AppEnvironment.SERVER_ADDRESS + '/message' + token, body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
                 const message = new Message(result.obj.content, result.obj.user.firstName, result.obj._id, result.obj.user._id);
@@ -30,7 +31,7 @@ export class MessageService {
     }
 
     getMessages() {
-        return this.http.get('http://localhost:3000/message')
+        return this.http.get(AppEnvironment.SERVER_ADDRESS + '/message')
             .map((response: Response) => {
                 const messages = response.json().obj;
                 let transformedMessages: Message[] = [];
@@ -54,7 +55,7 @@ export class MessageService {
         const body = JSON.stringify(message);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = sessionStorage.getItem('token') ? '?token=' + sessionStorage.getItem('token') : '';
-        return this.http.patch('http://localhost:3000/message/' + message.messageId + token, body, {headers: headers})
+        return this.http.patch(AppEnvironment.SERVER_ADDRESS + '/message/' + message.messageId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -65,7 +66,7 @@ export class MessageService {
     deleteMessage(message: Message) {
         this.messages.splice(this.messages.indexOf(message), 1);
         const token = sessionStorage.getItem('token') ? '?token=' + sessionStorage.getItem('token') : '';
-        return this.http.delete('http://localhost:3000/message/' + message.messageId + token)
+        return this.http.delete(AppEnvironment.SERVER_ADDRESS + '/message/' + message.messageId + token)
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
