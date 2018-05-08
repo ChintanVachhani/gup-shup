@@ -4,4 +4,8 @@ It has following features :
 - message creating, editing and deleting
 - user signup, signin, logout and authentication
 
-NOTE: Make changes to database address and server address according to your environment.
+### To run the application, follow the steps:
+  - create a .env file for your database user and password.
+  - in the app.js file (root directory), make sure that the line requiring dotenv package in uncommented.
+  - run `npm install`
+  - run `npm run start`
